@@ -1,15 +1,13 @@
-# There are numBottles water bottles that are initially full of water. You can exchange numExchange empty water bottles from the market with one full water bottle.
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
+        total=numBottles
+        while numBottles>=numExchange:
+            newBottle=(numBottles//numExchange) 
+            left= numBottles%numExchange
+            newBottle=newBottle+left
+            numBottles=newBottle
+            total= total+numBottles -left
+        return total
 
-# The operation of drinking a full water bottle turns it into an empty bottle.
-
-# Given the two integers numBottles and numExchange, return the maximum number of water bottles you can drink.
-a= int(input())
-b= int(input())
-total=a
-while a>=b:
-    newBottle=(a//b) 
-    left= a%b
-    newBottle=newBottle+left
-    a=newBottle
-    total= total+a -left
-print(total)
+solve= Solution()
+print(solve.numWaterBottles(9,3))        
